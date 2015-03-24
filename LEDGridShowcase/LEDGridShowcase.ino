@@ -196,7 +196,7 @@
    delay(1000);
    
    //**start a new cycle, this time with the 191th color
-   int color2 = 191;
+   int color2 = 127;
    for(int i=0; i<=63;i++){
      frameBuffer[i] = color2;
      color2++;
@@ -204,20 +204,36 @@
    //**send the final cycle to the grid, thus showcasing all 255 colors + no color at all.
    sendFrame(frameBuffer);
    //**Delay for 200 miliseconds, as per documentation to reduce risk of corrupted image.
-   delay(200);
+   delay(1000);
+   
+   int color3 = 191;
+   for(int i=0; i<=63;i++){
+     frameBuffer[i] = color3;
+     color3++;
+   }
+  sendFrame(frameBuffer);
+  delay(1000);
+  
   }
   
   void loop(){
-    //**I now invoke makeSmil(), makeFrown(), then display255() in quick succession to showcase a simple animation, then a cycle of all displayable colors.
+    //**I now invoke makeSmile(), makeFrown(), then display255() in quick succession to showcase a simple animation, then a cycle of all displayable colors.
+
       makeSmile();
-      
+            
       delay(200);
       
       makeFrown();
       
       delay(200);
       
+      makeSmile();
+      
+      delay(1000);
+      
       display255();
       
-      delay(200);
+      delay(1000);
+      
+
     }
